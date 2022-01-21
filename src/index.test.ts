@@ -1,11 +1,51 @@
 import { createMocks } from "node-mocks-http";
+import { dispatchRequest } from "./index";
 
 describe("dispatchRequest", () => {
   describe("calls the correct handler", () => {
-    test("when sent GET", () => {});
-    test("when sent POST", () => {});
-    test("when sent PUT", () => {});
-    test("when sent DELETE", () => {});
+    test("when sent GET", () => {
+      const fn = jest.fn();
+      const { req, res } = createMocks({
+        method: "GET",
+      });
+      dispatchRequest(req, res, {
+        get: fn,
+      });
+      expect(fn).toHaveBeenCalledTimes(1);
+    });
+
+    test("when sent POST", () => {
+      const fn = jest.fn();
+      const { req, res } = createMocks({
+        method: "POST",
+      });
+      dispatchRequest(req, res, {
+        post: fn,
+      });
+      expect(fn).toHaveBeenCalledTimes(1);
+    });
+
+    test("when sent PUT", () => {
+      const fn = jest.fn();
+      const { req, res } = createMocks({
+        method: "PUT",
+      });
+      dispatchRequest(req, res, {
+        put: fn,
+      });
+      expect(fn).toHaveBeenCalledTimes(1);
+    });
+
+    test("when sent DELETE", () => {
+      const fn = jest.fn();
+      const { req, res } = createMocks({
+        method: "DELETE",
+      });
+      dispatchRequest(req, res, {
+        delete: fn,
+      });
+      expect(fn).toHaveBeenCalledTimes(1);
+    });
   });
 
   describe("sends a 405 Not Allowed response and enumerates the allowed methods", () => {
