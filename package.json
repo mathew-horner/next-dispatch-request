@@ -6,15 +6,17 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "rm -rf lib && tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "prepare": "npm run build",
-    "version": "npm run format && git add -A src",
+    "prepublishOnly": "npm test",
+    "version": "git add -A src",
     "postversion": "git push && git push --tags"
   },
   "keywords": [],
   "author": "Mathew Horner",
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-typescript": "^7.16.7",
     "@types/jest": "^27.4.0",
     "@types/next": "^9.0.0",
     "@types/react": "^17.0.38",
@@ -27,6 +29,9 @@
     "url": "git+https://github.com/mdx97/next-dispatch-request.git"
   },
   "dependencies": {
+    "@babel/core": "^7.16.10",
+    "@babel/preset-env": "^7.16.11",
+    "babel-jest": "^27.4.6",
     "jest": "^27.4.7"
   }
 }
