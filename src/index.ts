@@ -26,7 +26,7 @@ export async function dispatchRequest(
       "Allow",
       Object.keys(handlers).map((handler) => handler.toUpperCase())
     );
-    res.status(405).send(`Method ${method.toUpperCase} Not Allowed!`);
+    res.status(405).send(`Method ${method.toUpperCase()} Not Allowed!`);
     return;
   }
   try {
