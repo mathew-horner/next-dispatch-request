@@ -1,8 +1,16 @@
 # Next.js API Request Dispatcher
 
-This package provides a clean way to handle writing discrete method handlers for your Next.js API routes.
+A package to provide a clean way to handle writing discrete method handlers for your Next.js API routes.
 
-The common way to handle different method types in Next.js is to simply branch based on the method:
+# Install
+
+```
+npm i next-dispatch-request
+```
+
+## Usage
+
+A common way to handle different method types in Next.js is to simply branch based on the method:
 
 ```ts
 export default function handler(req, res) {
@@ -30,4 +38,4 @@ export default createRequestDispatcher({
 });
 ```
 
-The function that is returned by `createRequestDispatcher` will handle some of the overhead for you by checking if the method has a corresponding handler.
+The function that is returned by `createRequestDispatcher` will handle some of the overhead for you by checking if the method has a corresponding handler, and then calling the handler that maps to the method that the requestor sent in the HTTP request. It also handles sending back a 405 error for methods that have no corresponding handler.
