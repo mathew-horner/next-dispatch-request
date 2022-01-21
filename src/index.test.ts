@@ -1,3 +1,5 @@
+import { createMocks } from "node-mocks-http";
+
 describe("dispatchRequest", () => {
   describe("calls the correct handler", () => {
     test("when sent GET", () => {});
