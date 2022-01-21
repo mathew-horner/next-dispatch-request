@@ -1,15 +1,15 @@
 {
   "name": "next-dispatch-request",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple library for creating HTTP method specific API route handlers in Next.js",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "rm -rf lib && tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare" : "npm run build",
-    "version" : "npm run format && git add -A src",
-    "postversion" : "git push && git push --tags"
+    "prepare": "npm run build",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [],
   "author": "Mathew Horner",
